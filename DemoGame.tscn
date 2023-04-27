@@ -1,20 +1,21 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/ToMain.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Water.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Block.tscn" type="PackedScene" id=4]
-
-[sub_resource type="LineShape2D" id=3]
-d = 0.01
+[ext_resource path="res://scenes/Prefabs/Water.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Prefabs/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Prefabs/Block.tscn" type="PackedScene" id=4]
+[ext_resource path="res://grid.png" type="Texture" id=5]
+[ext_resource path="res://scenes/Prefabs/Dummy.tscn" type="PackedScene" id=6]
 
 [node name="DemoGame" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 2560.0
-margin_bottom = 1440.0
-color = Color( 0.172549, 0.764706, 0.121569, 1 )
+[node name="Grid" type="Sprite" parent="."]
+position = Vector2( 1275, 715 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 1024, 1024, 1280, 720 )
 
 [node name="Water" parent="." instance=ExtResource( 2 )]
 position = Vector2( 110, 355 )
@@ -24,6 +25,11 @@ position = Vector2( 428, 113 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+limit_left = -16
+limit_top = -16
+limit_right = 2572
+limit_bottom = 1456
+limit_smoothed = true
 smoothing_enabled = true
 
 [node name="Drip" type="Area2D" parent="."]
@@ -49,3 +55,20 @@ scale = Vector2( 2.30568, 144.192 )
 position = Vector2( 1352, 1428 )
 rotation = -1.57079
 scale = Vector2( 2.30568, 144.192 )
+
+[node name="StaticBody2D5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 802, 189 )
+scale = Vector2( 2.45872, 22.7893 )
+
+[node name="StaticBody2D6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 264, 616 )
+scale = Vector2( 53.8973, 2.69539 )
+
+[node name="Dummy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 637, 137 )
+
+[node name="Dummy2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 597, 186 )
+
+[node name="Dummy3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 646, 236 )
