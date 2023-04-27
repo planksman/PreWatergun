@@ -7,7 +7,7 @@ extends Entity
 @export var rotation_speed = 1.5
 
 var ammo = 0
-@export var fake_name = "TestName"
+@export var fake_name = str(UsernameStuff.current_username)
 #export (bool) var OnWater = false
 
 @onready var WGTimer = get_node("Timers/WGTimer")
@@ -18,11 +18,11 @@ var ammo = 0
 func _ready():
 	set_multiplayer_authority(name.to_int())
 	print(str(is_multiplayer_authority()))
-	$Sprites/Authority.visible = is_multiplayer_authority()
+	$Sprites/Authority.visible = true
 	$Camera2D.enabled = is_multiplayer_authority()
 	$Hud.visible = is_multiplayer_authority()
 	
-	fake_name_label.text = fake_name
+	fake_name_label.text = UsernameStuff.current_username
 	
 	randomize()
 	spawn()
