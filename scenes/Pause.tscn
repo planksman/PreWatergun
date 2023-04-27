@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1m85rfj5ff4i"]
+
+[ext_resource type="Theme" uid="uid://bqi07rsa4jhca" path="res://themes/Default.tres" id="1_uit66"]
+[ext_resource type="Script" path="res://scripts/Quit.gd" id="2_q6r6b"]
+
+[node name="Pause" type="CanvasLayer"]
+layer = 127
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uit66")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.188235)
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -293.0
+offset_right = 260.0
+offset_bottom = 293.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 14.0
+offset_right = 80.0
+offset_bottom = 49.0
+grow_horizontal = 2
+text = "Pause Menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 135.0
+offset_top = 84.0
+offset_right = -134.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Contiune" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Contiune"
+
+[node name="ExitToMenu" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Exit to Menu"
+
+[node name="Quit" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Quit To Desktop"
+script = ExtResource("2_q6r6b")
+
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Quit" to="Control/Panel/VBoxContainer/Quit" method="_on_Quit_pressed"]

@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5w0g6wqy58xl"]
+
+[ext_resource type="Theme" uid="uid://bqi07rsa4jhca" path="res://themes/Default.tres" id="1_60y3x"]
+
+[node name="MultiplayerConfig" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1281.0
+offset_bottom = 719.0
+theme = ExtResource("1_60y3x")
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -284.5
+offset_right = 220.0
+offset_bottom = 284.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_right = 441.0
+offset_bottom = 32.0
+text = "Multiplayer Mode ( INDEV )"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 48.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label3" type="Label" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Username:"
+horizontal_alignment = 1
+
+[node name="Username" type="LineEdit" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter Your Username Here..."
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Enter IP Adress below."
+horizontal_alignment = 1
+
+[node name="Ip" type="LineEdit" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter Your IP Here..."
+alignment = 1
+
+[node name="PortJoin" type="LineEdit" parent="Control/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+placeholder_text = "Enter Your Port Here...."
+alignment = 1
+
+[node name="JoinGame" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Join Game"
+
+[node name="Label2" type="Label" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Host Options"
+horizontal_alignment = 1
+
+[node name="PortHost" type="LineEdit" parent="Control/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+placeholder_text = "Enter Your Port Here...."
+alignment = 1
+
+[node name="HostGame" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Host Game"
