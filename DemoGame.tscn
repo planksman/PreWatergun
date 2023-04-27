@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/ToMain.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Prefabs/Water.tscn" type="PackedScene" id=2]
@@ -31,6 +31,12 @@ limit_right = 2572
 limit_bottom = 1456
 limit_smoothed = true
 smoothing_enabled = true
+
+[node name="Drip" type="Area2D" parent="."]
+position = Vector2( 154, 28 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drip"]
+shape = SubResource( 3 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 4 )]
 position = Vector2( -21, 715 )
