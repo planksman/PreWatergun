@@ -56,11 +56,13 @@ func get_input():
 			ShootTimer.start()
 			fire_projectile.rpc()
 			update_ammo_counter()
+	if Input.is_action_pressed("esc"):
+		get_tree().quit()
 
 
 func update_ammo_counter():
 	if not is_multiplayer_authority(): return
-	get_node("Hud/Control/Ammo").set_text(str("Ammo: ")+str(ammo)+ "/100")
+	get_node("Hud/Control/Ammo").set_text(str("Water Tank: ")+str(ammo)+ "/100")
 
 func update_wetness_counter():
 	get_node("Hud/Control/Wetness").set_text(str("Wetness: ")+str(round(wetness)) + "/" + str(max_wetness))
