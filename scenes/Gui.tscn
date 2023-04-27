@@ -1,58 +1,98 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=3 uid="uid://w14pnux2aeyc"]
 
-[node name="Control" type="Control"]
+[ext_resource type="Theme" uid="uid://bqi07rsa4jhca" path="res://themes/Default.tres" id="1_gdmfh"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 96
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gdmfh")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 128
-
-[node name="Wetness" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = 425.0
-margin_top = 6.0
-margin_right = 490.0
-margin_bottom = 21.0
+[node name="Wetness" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 6.0
+offset_right = 924.0
+offset_bottom = 47.0
+text = "Wetness: 100/100"
+scroll_active = false
 tab_size = 1
-text = "Wetness:"
 
-[node name="Ammo" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = 10.0
-margin_top = 5.0
-margin_right = 115.0
-margin_bottom = 23.0
+[node name="Ammo" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 399.0
+offset_bottom = 43.0
 bbcode_enabled = true
-text = "Ammo: 0"
-
-[node name="Recharge" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = 380.0
-margin_top = 601.47
-margin_right = 559.0
-margin_bottom = 617.47
-rect_scale = Vector2( 3, 3 )
-bbcode_enabled = true
-bbcode_text = "Press [b][color=blue]R[/color][/b] to Recharge Water."
-text = "Press R to Recharge Water."
+text = "Ammo: 0/100"
 scroll_active = false
 
-[node name="Recharge2" type="RichTextLabel" parent="CanvasLayer/Recharge"]
-modulate = Color( 0, 0, 0, 1 )
+[node name="Recharge" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -475.0
+offset_top = 240.0
+offset_right = 10.0
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+bbcode_enabled = true
+text = "Press R to Refill Water Tank."
+scroll_active = false
+
+[node name="Recharge2" type="RichTextLabel" parent="Control/Recharge"]
+modulate = Color(0, 0, 0, 1)
 show_behind_parent = true
-margin_left = 1.33334
-margin_top = 1.33334
-margin_right = 180.333
-margin_bottom = 17.3333
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 512.0
+offset_bottom = 61.0
 bbcode_enabled = true
-bbcode_text = "Press [b][color=blue]R[/color][/b] to Recharge Water."
-text = "Press R to Recharge Water."
+text = "Press R to Refill Water Tank."
 scroll_active = false
 
-[node name="Timer" type="ColorRect" parent="CanvasLayer"]
+[node name="Timer" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -160.0
-margin_top = -50.0
-margin_right = 160.0
-margin_bottom = -18.0
-rect_pivot_offset = Vector2( 160, 16 )
+offset_left = -160.0
+offset_top = -50.0
+offset_right = 160.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(160, 16)
+
+[node name="Dead" type="Label" parent="Control"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 79.0
+offset_top = 76.0
+offset_right = -929.0
+offset_bottom = -519.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1

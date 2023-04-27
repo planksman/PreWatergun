@@ -1,17 +1,15 @@
-extends KinematicBody2D
+extends CharacterBody2D
 class_name Entity
 
 #Speed
-export (int) var speed = 200
+@export var speed = 200
 
 #Wetness
-export (int) var wetness = 0
-export (int) var max_wetness = 100
+@export var wetness = 0
+@export var max_wetness = 100
 
 #OnWater
-export (bool) var OnWater = false
-
-export (Vector2) var velocity = Vector2()
+@export var OnWater = false
 
 
 #On Water Functions
@@ -24,7 +22,7 @@ func water_left():
 	OnWater = false
 
 func move():
-	velocity = move_and_slide(velocity)
+	move_and_slide()
 
 #Damage and Dying Functions
 func take_damage(amount):
@@ -40,4 +38,6 @@ func wetness_logic():
 		wetness = 0
 
 func die():
-	queue_free()
+	#dying would possibly have seperate codes because networking.
+	pass
+	#queue_free()
