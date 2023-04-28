@@ -95,13 +95,13 @@ horizontal_alignment = 1
 [node name="Ip" type="LineEdit" parent="MultiplayerConfig/Control/Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-placeholder_text = "Enter Your IP Here..."
+placeholder_text = "Enter Host's IP Here..."
 alignment = 1
 
 [node name="PortJoin" type="LineEdit" parent="MultiplayerConfig/Control/Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-placeholder_text = "Enter Your Port Here...."
+placeholder_text = "Enter Host's Port Here..."
 alignment = 1
 
 [node name="JoinGame" type="Button" parent="MultiplayerConfig/Control/Panel/VBoxContainer"]

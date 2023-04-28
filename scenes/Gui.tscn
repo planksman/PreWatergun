@@ -31,7 +31,7 @@ offset_top = 5.0
 offset_right = 399.0
 offset_bottom = 43.0
 bbcode_enabled = true
-text = "Ammo: 0/100"
+text = "Water Tank: 0/100"
 scroll_active = false
 
 [node name="Recharge" type="RichTextLabel" parent="Control"]
@@ -41,15 +41,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -475.0
+offset_left = -538.0
 offset_top = 240.0
-offset_right = 10.0
+offset_right = 6.0
 offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 bbcode_enabled = true
-text = "Press R to Refill Water Tank."
+text = "Press R to Refill the Water Tank."
 scroll_active = false
 
 [node name="Recharge2" type="RichTextLabel" parent="Control/Recharge"]
@@ -58,10 +58,10 @@ show_behind_parent = true
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
-offset_right = 512.0
+offset_right = 561.0
 offset_bottom = 61.0
 bbcode_enabled = true
-text = "Press R to Refill Water Tank."
+text = "Press R to Refill the Water Tank."
 scroll_active = false
 
 [node name="Timer" type="ColorRect" parent="Control"]
