@@ -42,6 +42,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SceneManager="*res://scenes/Prefabs/SceneManager.tscn"
+UsernameStuff="*res://scenes/UsernameStuff.tscn"
 
 [display]
 

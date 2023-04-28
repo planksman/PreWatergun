@@ -10,3 +10,6 @@ res://scenes/Pause.tscn
 res://scenes/Prefabs/SceneManager.tscn
 res://scenes/map.tscn
 res://scenes/Prefabs/Drip.tscn
+res://scripts/ToMain.gd
+res://scenes/UsernameStuff.tscn
+res://scripts/UsernameStuff.gd
