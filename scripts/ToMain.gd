@@ -7,6 +7,16 @@ extends Node
 @onready var map_instance = get_node("MapInstance")
 @onready var network_node = get_node("Network")
 @onready var spawnpoints = get_node("Map/SpawnPoints")
+@onready var error_message = get_node("%ErrorMessage")
+
+var error_messages = {
+	"everything_fine": "",
+	"need_username_host": "Please enter a username\n in order to host a game.",
+	"need_username_player": "Please enter a username\n in order to join a game.",
+	"need_port_host": "You need a port number\n to host!",
+	"need_ip": "You need an IP address\n to join!",
+	"need_port_player": "You need a port number\n to join!",
+}
 
 var your_fake_name
 
@@ -14,8 +24,17 @@ var your_fake_name
 	#if Input.is_action_pressed("ui_cancel"):
 		#get_tree().change_scene_to_file("res://Menu.tscn")
 
+func _ready():
+	error_message.text = error_messages["everything_fine"]
 
 func _on_host_game_pressed():
+	if get_node("%Username").text == "":
+		error_message.text = error_messages["need_username_host"]
+		return
+	if get_node("%PortHost").text == "":
+		error_message.text = error_messages["need_port_host"]
+		return
+
 	setup_upnp(get_node("%PortHost").text)
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(int((get_node("%PortHost").text)))
@@ -28,6 +47,15 @@ func _on_host_game_pressed():
 	#add_player(multiplayer.get_unique_id())
 	
 func _on_join_game_pressed():
+	if get_node("%Username").text == "":
+		error_message.text = error_messages["need_username_player"]
+		return "error"
+	if ip_address.text == "":
+		error_message.text = error_messages["need_ip"]
+		return "error"
+	if get_node("%PortJoin").text == "":
+		error_message.text = error_messages["need_port_player"]
+		return "error"
 	setup_upnp(get_node("%PortJoin").text)
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client(ip_address.text, int(get_node("%PortJoin").text))

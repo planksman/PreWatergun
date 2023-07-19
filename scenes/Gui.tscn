@@ -80,7 +80,6 @@ grow_vertical = 0
 pivot_offset = Vector2(160, 16)
 
 [node name="Dead" type="Label" parent="Control"]
-visible = false
 modulate = Color(1, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15

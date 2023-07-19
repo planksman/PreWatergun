@@ -1,28 +1,68 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmk8412v4b4fc"]
+[gd_scene load_steps=9 format=3 uid="uid://bmk8412v4b4fc"]
 
 [ext_resource type="Script" path="res://scripts/Quit.gd" id="1"]
 [ext_resource type="Theme" uid="uid://bqi07rsa4jhca" path="res://themes/Default.tres" id="1_waeog"]
 [ext_resource type="Script" path="res://scripts/Play.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://ormemoxjrw8r" path="res://MainMenu.png" id="2_3ssk6"]
+[ext_resource type="Texture2D" uid="uid://bpaqs4ky67a56" path="res://ProjectWaterGun.png" id="4_4hnxt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dbkrk"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_4ub0u"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gwtuc"]
+gradient = SubResource("Gradient_4ub0u")
+width = 1280
+height = 720
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_waeog")
 
+[node name="MainMenu" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_3ssk6")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 720)
+
+[node name="Gradient" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_dbkrk")
+texture = SubResource("GradientTexture2D_gwtuc")
+centered = false
+
 [node name="Settings" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 547.0
-offset_top = 344.0
+offset_top = 347.0
 offset_right = 699.0
-offset_bottom = 377.0
+offset_bottom = 387.0
+disabled = true
 text = "Settings"
 
 [node name="Quit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 546.0
-offset_top = 399.0
-offset_right = 698.0
-offset_bottom = 432.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = 33.0
+offset_right = 76.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Quit"
 script = ExtResource("1")
 
@@ -37,13 +77,45 @@ text = "Singleplayer"
 script = ExtResource("2")
 
 [node name="PlayOffline2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 464.0
-offset_top = 297.0
-offset_right = 792.0
-offset_bottom = 337.0
-text = "Play Online Test"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -20.0
+offset_right = 204.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Multiplayer ( TEST )"
 script = ExtResource("2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_right = 40.0
+grow_vertical = 0
+text = "Prototype Version. Developed by Tofi-Dev and Planks Wooden."
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -266.5
+offset_right = 320.0
+offset_bottom = -39.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_4hnxt")
 
 [connection signal="pressed" from="Quit" to="Quit" method="_on_Quit_pressed"]
 [connection signal="pressed" from="PlayOffline" to="PlayOffline" method="_on_PlayOffline_pressed"]

@@ -1,4 +1,6 @@
+TextureRect
 Label
+Timer
 Sprite2D
 CanvasLayer
 MultiplayerSynchronizer

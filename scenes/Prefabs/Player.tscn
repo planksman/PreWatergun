@@ -12,21 +12,31 @@ radius = 22.0227
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/sync = true
+properties/0/watch = false
 properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/sync = true
+properties/1/watch = false
 properties/2/path = NodePath(".:wetness")
 properties/2/spawn = true
 properties/2/sync = true
+properties/2/watch = false
 properties/3/path = NodePath("Camera2D:position")
 properties/3/spawn = true
 properties/3/sync = true
+properties/3/watch = false
 properties/4/path = NodePath("Sprites/Authority:text")
 properties/4/spawn = true
 properties/4/sync = true
+properties/4/watch = false
 properties/5/path = NodePath(".:fake_name")
 properties/5/spawn = true
 properties/5/sync = true
+properties/5/watch = false
+properties/6/path = NodePath(".:visible")
+properties/6/spawn = true
+properties/6/sync = true
+properties/6/watch = false
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
@@ -79,3 +89,6 @@ shape = SubResource("1")
 replication_config = SubResource("SceneReplicationConfig_1fkas")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0

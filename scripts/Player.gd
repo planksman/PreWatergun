@@ -13,6 +13,9 @@ var ammo = 0
 @onready var WGTimer = get_node("Timers/WGTimer")
 @onready var ShootTimer = get_node("Timers/ShootTimer")
 @onready var fake_name_label = get_node("Sprites/Authority")
+
+
+@export var is_dead = false
 #var velocity = Vector2()
 
 func _ready():
@@ -91,11 +94,19 @@ func _process(delta):
 		get_node("Hud/Control/Recharge").visible = true
 	else:
 		get_node("Hud/Control/Recharge").visible = false
+
+	if is_dead:
+		visible = false
+		get_node("Hud/Control/Dead").visible = true
+	else:
+		visible = true
+		get_node("Hud/Control/Dead").visible = false
 	
 func _physics_process(_delta):
 	if not is_multiplayer_authority(): return
-	get_input()
-	move()
+	if !is_dead:
+		get_input()
+		move()
 	
 func spawn():
 	position = get_parent().get_parent().spawnpoints.get_child(randi_range(0,get_parent().get_parent().spawnpoints.get_child_count() - 1)).position
@@ -103,8 +114,14 @@ func spawn():
 @rpc("call_local")
 func die():
 	super.die()
+	is_dead = true
+	wetness = 0
+	await get_tree().create_timer(5).timeout
+	is_dead = false
+
 	randomize()
-	spawn()
+	if is_dead == false:
+		spawn()
 
 	update_ammo_counter()
 	ammo = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ugpxyudgatjb"]
+[gd_scene load_steps=14 format=3 uid="uid://ugpxyudgatjb"]
 
 [ext_resource type="Script" path="res://scripts/ToMain.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/Prefabs/Water.tscn" id="2"]
@@ -7,16 +7,26 @@
 [ext_resource type="PackedScene" uid="uid://dc7mkomtdtnr1" path="res://scenes/map.tscn" id="3_dgoon"]
 [ext_resource type="TileSet" uid="uid://cpdw537002ks5" path="res://tilemap/TestTiles.tres" id="4"]
 [ext_resource type="Texture2D" uid="uid://dg6c2qvhrkbs0" path="res://WaterParallax.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://ormemoxjrw8r" path="res://MainMenu.png" id="5_b1e7v"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="5_h4xho"]
 
-[sub_resource type="Gradient" id="Gradient_5keih"]
-colors = PackedColorArray(0, 0, 0, 1, 4.09111e-07, 0.367346, 0.367451, 1)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_stc8e"]
+blend_mode = 3
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8e6j6"]
-gradient = SubResource("Gradient_5keih")
+[sub_resource type="Gradient" id="Gradient_f8uw2"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bl0lw"]
+gradient = SubResource("Gradient_f8uw2")
 width = 1280
 height = 720
-fill_from = Vector2(1, 1)
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hdgj4"]
+font_size = 20
+font_color = Color(1, 0, 0, 1)
+outline_size = 4
 
 [node name="DemoGame" type="Node2D"]
 script = ExtResource("1")
@@ -41,8 +51,15 @@ offset_right = 1281.0
 offset_bottom = 719.0
 theme = ExtResource("2_461pp")
 
-[node name="Sprite2D" type="Sprite2D" parent="MultiplayerConfig/Control"]
-texture = SubResource("GradientTexture2D_8e6j6")
+[node name="Texture" type="Sprite2D" parent="MultiplayerConfig/Control"]
+texture = ExtResource("5_b1e7v")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 720)
+
+[node name="Gradient" type="Sprite2D" parent="MultiplayerConfig/Control"]
+material = SubResource("CanvasItemMaterial_stc8e")
+texture = SubResource("GradientTexture2D_bl0lw")
 centered = false
 
 [node name="Panel" type="Panel" parent="MultiplayerConfig/Control"]
@@ -108,6 +125,9 @@ alignment = 1
 layout_mode = 2
 text = "Join Game"
 
+[node name="Seperation2" type="Label" parent="MultiplayerConfig/Control/Panel/VBoxContainer"]
+layout_mode = 2
+
 [node name="Label2" type="Label" parent="MultiplayerConfig/Control/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Host Options"
@@ -123,6 +143,16 @@ alignment = 1
 [node name="HostGame" type="Button" parent="MultiplayerConfig/Control/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Host Game"
+
+[node name="Seperation" type="Label" parent="MultiplayerConfig/Control/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ErrorMessage" type="Label" parent="MultiplayerConfig/Control/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ERROR_MESSAGE"
+label_settings = SubResource("LabelSettings_hdgj4")
+horizontal_alignment = 1
 
 [node name="Map" type="Node2D" parent="."]
 script = ExtResource("5_h4xho")
